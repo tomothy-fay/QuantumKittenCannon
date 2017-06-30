@@ -16,8 +16,6 @@ using namespace std;
 //  for all programs in c++.
 int main()
 {
-
-
   // This sets the number of dimensions on the x and y grids
   int num_x_grid_points = pow(2,9) - 1 ;
   int num_y_grid_points = pow(2,9) - 1 ;
@@ -72,6 +70,7 @@ int main()
   double time =  ((double) stop - (double) start) / CLOCKS_PER_SEC ;
   cout << "Time elapsed: " << time << " seconds." << endl ;
 
+  // These lines are required to free the memory of the created pointers to avoid all hell breaking loose.
   delete[] input ;
   delete[] output ;
 
