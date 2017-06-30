@@ -18,7 +18,7 @@ int main()
 {
   // This sets the number of dimensions on the x and y grids
   int num_x_grid_points = pow(2,9) - 1 ;
-  int num_y_grid_points = pow(2,9) - 1 ;
+  int num_y_grid_points = pow(2,8) - 1 ;
   int num_grid_points = num_x_grid_points *  num_y_grid_points ;
 
   // This instantiates the DiscreteSineTransformer2D class with the specified number of x and y grid points
@@ -32,7 +32,7 @@ int main()
   {
     for (int i = 0 ; i < num_x_grid_points ; i++)
     {
-      input[i + num_x_grid_points * j] = 0.5*j+1 ;
+      input[j + num_y_grid_points * i] = 0.5*j+1 ;
     }
   }
 
@@ -54,7 +54,7 @@ int main()
     dst.ExecuteTransform();
   }
 
-  
+
 //  output = dst.GetOutputAsPointer() ;
 //  dst.TransformInputPointer(output) ;
 
@@ -78,7 +78,7 @@ int main()
 
   // These lines are required to free the memory of the created pointers to avoid all hell breaking loose.
   delete[] input ;
-  delete[] output ;
+//  delete[] output ;
 
 
   return 0;
