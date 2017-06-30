@@ -36,19 +36,25 @@ int main()
     }
   }
 
+//  double *output = new double[num_grid_points];
+
   // timing the code
   clock_t start = clock() ;
+
+  // Loops over 100 forward and backward sine transforms
   for (int i = 0 ; i < 100 ; i++)
+  {
+    // This sets the input for the transform
+    dst.SetInputFromPointer(input);
+    // This executes the transform
+    dst.ExecuteTransform();
+    // This sets the input function in dst to the output function
+    dst.SetInputAsOutput();
+    // This performs the transform again, inverting it
+    dst.ExecuteTransform();
+  }
 
-  // This sets the input for the transform
-  dst.SetInputFromPointer(input) ;
-  dst.ExecuteTransform() ;
-
-  double *output = new double [num_grid_points] ;
-
-  dst.SetInputAsOutput() ;
-  dst.ExecuteTransform() ;
-
+  
 //  output = dst.GetOutputAsPointer() ;
 //  dst.TransformInputPointer(output) ;
 
