@@ -35,6 +35,10 @@ endif()
 add_library( libtutorial SHARED	
         t1/rectangle.h t1/rectangle.cpp
 	t2/square.h t2/square.cpp
+	t3/geometricfigure.h
+	t3/rectangle2.h t3/rectangle2.cpp
+	t3/square2.h t3/square2.cpp
+	t4/Vector3D.h t4/Vector3D.cpp
         )
 
 # Set directory for executables (bin/)
@@ -47,3 +51,11 @@ target_link_libraries( t1.x libtutorial )
 # Compile tutorial 2 and create executable
 add_executable( t2.x t2/main.cpp )
 target_link_libraries( t2.x libtutorial )
+
+# Compile tutorial 3 and create executable
+add_executable( t3.x t3/main.cpp )
+target_link_libraries( t3.x libtutorial )
+
+# Compile tutorial 4 and create executable
+add_executable( t4.x t4/main.cpp )
+target_link_libraries( t4.x libtutorial )
